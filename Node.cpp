@@ -43,3 +43,8 @@ IntNode::~IntNode() {
     PrintNodeData();
     delete nextNodePtr;
 }
+
+int IntNode::getDataVal() {
+    return dataVal;
+}
+

@@ -102,4 +102,37 @@ LinkedList::~LinkedList() {  //destructor
     // delete head
     cout << "delete head" << endl;
     delete head;
+    head = nullptr;
+    tail = nullptr;
+}
+
+LinkedList::LinkedList(const LinkedList &origList) {
+    head = nullptr;
+    tail = nullptr;
+    cout << "copy constructor" << endl;
+    IntNode* temp = origList.head;
+    while (temp != nullptr) {
+        int data = temp->getDataVal();
+        IntNode* node = new IntNode(data);
+        push_back(node);
+        temp = temp->GetNext();
+    }
+}
+
+LinkedList &LinkedList::operator=(const LinkedList &origList) {
+    cout << "Assignment operator." << endl;
+
+    if (this != &origList) {
+        head = nullptr;
+        tail = nullptr;
+        IntNode* temp = origList.head;
+        while (temp != nullptr) {
+            int data = temp->getDataVal();
+            IntNode* node = new IntNode(data);
+            push_back(node);
+            temp = temp->GetNext();
+        }
+    }
+
+    return *this;
 }

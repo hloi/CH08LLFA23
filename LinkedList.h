@@ -13,6 +13,10 @@ public:
 
     ~LinkedList();
 
+    LinkedList(const LinkedList& origList);  // copy constructor
+
+    LinkedList& operator=(const LinkedList& origList);  // assignment operator
+
     void printList();
 
     IntNode *getHead() const;

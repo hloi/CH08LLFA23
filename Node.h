@@ -10,13 +10,18 @@
 class IntNode {
 public:
 
-    IntNode(int dataInit = 0, IntNode* nextLoc = nullptr);
+    IntNode(int dataInit = 0, IntNode* nextLoc = nullptr);  // constructor
+
+
+    // IntNode(const IntNode* origObject);  // copy constructor
     void InsertAfter(IntNode* nodeLoc);
     IntNode* GetNext();
     void SetNext(IntNode* nodeLoc);
     void PrintNodeData();
 
     ~IntNode();
+    int getDataVal();
+
 private:
     int dataVal;
     IntNode* nextNodePtr;
