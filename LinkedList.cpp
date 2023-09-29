@@ -5,6 +5,7 @@
 #include "LinkedList.h"
 #include <iostream>
 
+
 using namespace std;
 
 IntNode *LinkedList::getHead() const {
@@ -119,6 +120,7 @@ LinkedList::LinkedList(const LinkedList &origList) {
     }
 }
 
+
 LinkedList &LinkedList::operator=(const LinkedList &origList) {
     cout << "Assignment operator." << endl;
 
@@ -136,3 +138,4 @@ LinkedList &LinkedList::operator=(const LinkedList &origList) {
 
     return *this;
 }
+

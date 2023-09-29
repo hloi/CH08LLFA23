@@ -4,7 +4,7 @@
 
 #ifndef CH08LLFA23_LINKEDLIST_H
 #define CH08LLFA23_LINKEDLIST_H
-
+#include <algorithm>
 #include "Node.h"
 
 class LinkedList {
