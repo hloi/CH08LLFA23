@@ -39,6 +39,10 @@ public:
 
     void readFile(string filename);
 
+    void pop_front();  // remove front of the list
+
+    void pop_back();  // remove back of the list
+
 private:
     RestNode* head;
     RestNode* tail;

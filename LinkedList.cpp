@@ -103,10 +103,18 @@ void LinkedList::insert(int pos, RestNode *nodeLoc) {
 
 LinkedList::~LinkedList() {  //destructor
     // delete head
-    cout << "delete head" << endl;
-    delete head;
-    head = nullptr;
-    tail = nullptr;
+//    cout << "delete head" << endl;
+//    delete head;
+//    head = nullptr;
+//    tail = nullptr;
+    RestNode* temp = head;
+    while (temp != nullptr) {
+        cout << "delete ";
+        temp->PrintNodeData();
+        head = head->GetNext();
+        delete temp;
+        temp = head;
+    }
 }
 
 LinkedList::LinkedList(const LinkedList &origList) {
@@ -155,12 +163,50 @@ void LinkedList::readFile(string filename) {
         getline(f, rating);
         double rate;
         istringstream in(rating);
-        in >> rate;
+        if (!(in >> rate)) {
+            cout << endl << "conversion failed." << endl;
+            throw runtime_error("conversion failed.");
+        }
         string food;
-        getline(f, food);
+        if (!getline(f, food)) {
+            cout << endl << "food type failed." << endl;
+            throw runtime_error("read food type failed.");
+        }
         Restaurant a(name, food, rate);
         RestNode* node1 = new RestNode(a);
         push_back(node1);
+    }
+
+}
+
+void LinkedList::pop_front() {
+    if (head == nullptr) {
+        throw runtime_error("try to remove from an empty list.");
+    }
+    RestNode* temp = head;
+    head = head->GetNext();
+    // one node
+    if (head == nullptr) {
+        tail = head;
+    }
+    delete temp;
+}
+
+void LinkedList::pop_back() {
+    RestNode* temp = head;
+    if (head == nullptr) {
+        throw runtime_error("try to remove from an empty list.");
+    }
+    else if (head->GetNext() == nullptr) {
+        pop_front();
+    }
+    else {
+        while (temp->GetNext() != tail) {
+            temp = temp->GetNext();
+        }
+        temp->SetNext(nullptr);
+        delete tail;
+        tail = temp;
     }
 
 }

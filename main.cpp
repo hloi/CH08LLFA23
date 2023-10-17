@@ -93,8 +93,26 @@ int main() {
 //    restList.printList();
 
     LinkedList restList;
-    restList.readFile("restaurant.txt");
+    try {
+        restList.readFile("restaurant.txt");
+    }
+    catch (runtime_error& e) {
+        cout << "main conversion failed." << endl;
+    }
+
     restList.printList();
+    cout << "+++++ pop front +++++" << endl;
+    restList.pop_front();
+    restList.printList();
+    cout << "+++++ pop back +++++" << endl;
+    restList.pop_back();
+    restList.printList();
+
+//    LinkedList list2;
+//    list2.pop_front();
+
+
+
 }
 
 

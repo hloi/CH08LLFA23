@@ -39,9 +39,9 @@ void RestNode::SetNext(RestNode *nodeLoc) {
 }
 
 RestNode::~RestNode() {
-    cout << "delete Node ";
-    PrintNodeData();
-    delete nextNodePtr;
+//    cout << "delete Node ";
+//    PrintNodeData();
+//    delete nextNodePtr;
 }
 
 Restaurant& RestNode::getDataVal()  {
