@@ -8,7 +8,7 @@
 using namespace std;
 
 // Constructor
-IntNode::IntNode(int dataInit, IntNode* nextLoc) {
+RestNode::RestNode(Restaurant& dataInit, RestNode* nextLoc) {
     this->dataVal = dataInit;
     this->nextNodePtr = nextLoc;
 }
@@ -17,34 +17,34 @@ IntNode::IntNode(int dataInit, IntNode* nextLoc) {
  * Before: this -- next
  * After:  this -- node -- next
  */
-void IntNode::InsertAfter(IntNode* nodeLoc) {
-    IntNode* tmpNext = nullptr;
+void RestNode::InsertAfter(RestNode* nodeLoc) {
+    RestNode* tmpNext = nullptr;
 
     tmpNext = this->nextNodePtr;    // Remember next
     this->nextNodePtr = nodeLoc;    // this -- node -- ?
     nodeLoc->nextNodePtr = tmpNext; // this -- node -- next
 }
 // Print dataVal
-void IntNode::PrintNodeData() {
+void RestNode::PrintNodeData() {
     cout << this->dataVal << endl;
 }
 
 // Grab location pointed by nextNodePtr
-IntNode* IntNode::GetNext() {
+RestNode* RestNode::GetNext() {
     return this->nextNodePtr;
 }
 
-void IntNode::SetNext(IntNode *nodeLoc) {
+void RestNode::SetNext(RestNode *nodeLoc) {
     this->nextNodePtr = nodeLoc;
 }
 
-IntNode::~IntNode() {
+RestNode::~RestNode() {
     cout << "delete Node ";
     PrintNodeData();
     delete nextNodePtr;
 }
 
-int IntNode::getDataVal() {
+Restaurant& RestNode::getDataVal()  {
     return dataVal;
 }
 

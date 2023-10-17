@@ -5,26 +5,26 @@
 #ifndef CH08LLFA23_NODE_H
 #define CH08LLFA23_NODE_H
 
+#include "Restaurant.h"
 
-
-class IntNode {
+class RestNode {
 public:
 
-    IntNode(int dataInit = 0, IntNode* nextLoc = nullptr);  // constructor
+    RestNode(Restaurant& dataInit, RestNode* nextLoc = nullptr);  // constructor
 
 
-    // IntNode(const IntNode* origObject);  // copy constructor
-    void InsertAfter(IntNode* nodeLoc);
-    IntNode* GetNext();
-    void SetNext(IntNode* nodeLoc);
+    // RestNode(const RestNode* origObject);  // copy constructor
+    void InsertAfter(RestNode* nodeLoc);
+    RestNode* GetNext();
+    void SetNext(RestNode* nodeLoc);
     void PrintNodeData();
 
-    ~IntNode();
-    int getDataVal();
+    ~RestNode();
+    Restaurant& getDataVal();
 
 private:
-    int dataVal;
-    IntNode* nextNodePtr;
+    Restaurant dataVal;
+    RestNode* nextNodePtr;
 };
 
 #endif //CH08LLFA23_NODE_H

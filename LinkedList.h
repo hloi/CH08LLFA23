@@ -5,7 +5,11 @@
 #ifndef CH08LLFA23_LINKEDLIST_H
 #define CH08LLFA23_LINKEDLIST_H
 #include <algorithm>
+#include <string>
+
 #include "Node.h"
+
+using std::string;
 
 class LinkedList {
 public:
@@ -19,23 +23,25 @@ public:
 
     void printList();
 
-    IntNode *getHead() const;
+    RestNode *getHead() const;
 
-    void setHead(IntNode *head);
+    void setHead(RestNode *head);
 
-    IntNode *getTail() const;
+    RestNode *getTail() const;
 
-    void setTail(IntNode *tail);
+    void setTail(RestNode *tail);
 
-    void insert(int pos, IntNode* nodeLoc); // insert at position
+    void insert(int pos, RestNode* nodeLoc); // insert at position
 
-    void push_front(IntNode* nodeLoc);  // add in the front of the list
+    void push_front(RestNode* nodeLoc);  // add in the front of the list
 
-    void push_back(IntNode* nodeLoc);  // add at the rear of the list
+    void push_back(RestNode* nodeLoc);  // add at the rear of the list
+
+    void readFile(string filename);
 
 private:
-    IntNode* head;
-    IntNode* tail;
+    RestNode* head;
+    RestNode* tail;
 
 };
 

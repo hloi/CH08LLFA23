@@ -6,11 +6,11 @@ using namespace std;
 
 //int main() {
 //    LinkedList ll;
-//    IntNode* n1 = new IntNode(1);
-//    IntNode* n2 = new IntNode(2);
-//    IntNode* n3 = new IntNode(3);
-//    IntNode* n4 = new IntNode(4);
-//    IntNode* n5 = new IntNode(5);
+//    RestNode* n1 = new RestNode(1);
+//    RestNode* n2 = new RestNode(2);
+//    RestNode* n3 = new RestNode(3);
+//    RestNode* n4 = new RestNode(4);
+//    RestNode* n5 = new RestNode(5);
 //    ll.push_front(n1);
 //    ll.push_front(n2);
 //    ll.push_front(n3);
@@ -43,11 +43,11 @@ using namespace std;
 //int main() {
 //
 //    LinkedList ll;
-//    IntNode* n1 = new IntNode(1);
-//    IntNode* n2 = new IntNode(2);
-//    IntNode* n3 = new IntNode(3);
-//    IntNode* n4 = new IntNode(4);
-//    IntNode* n5 = new IntNode(5);
+//    RestNode* n1 = new RestNode(1);
+//    RestNode* n2 = new RestNode(2);
+//    RestNode* n3 = new RestNode(3);
+//    RestNode* n4 = new RestNode(4);
+//    RestNode* n5 = new RestNode(5);
 //    ll.push_front(n1);
 //    ll.push_front(n2);
 //    ll.push_front(n3);
@@ -59,27 +59,43 @@ using namespace std;
 //    ll2.printList();
 //}
 
+//int main() {
+//
+//    LinkedList* ll = new LinkedList();
+//    RestNode* n1 = new RestNode(1);
+//    RestNode* n2 = new RestNode(2);
+//    RestNode* n3 = new RestNode(3);
+//    RestNode* n4 = new RestNode(4);
+//    RestNode* n5 = new RestNode(5);
+//    ll->push_front(n1);
+//    ll->push_front(n2);
+//    ll->push_front(n3);
+//    ll->push_front(n4);
+//    ll->push_front(n5);
+//
+//    LinkedList* ll2 = new LinkedList();
+//    *ll2 = *ll; // override assignment operator
+//    ll2->printList();
+//    delete ll;
+//    delete ll2;
+//}
+
 int main() {
 
-    LinkedList* ll = new LinkedList();
-    IntNode* n1 = new IntNode(1);
-    IntNode* n2 = new IntNode(2);
-    IntNode* n3 = new IntNode(3);
-    IntNode* n4 = new IntNode(4);
-    IntNode* n5 = new IntNode(5);
-    ll->push_front(n1);
-    ll->push_front(n2);
-    ll->push_front(n3);
-    ll->push_front(n4);
-    ll->push_front(n5);
+//    Restaurant a("test1", "food1", 1);
+//    Restaurant b("test2", "food1", 2);
+//
+//    RestNode* node1 = new RestNode(a);
+//    RestNode* node2 = new RestNode(b);
+//    LinkedList restList;
+//    restList.push_back(node1);
+//    restList.push_back(node2);
+//    restList.printList();
 
-    LinkedList* ll2 = new LinkedList();
-    *ll2 = *ll; // override assignment operator
-    ll2->printList();
-    delete ll;
-    delete ll2;
+    LinkedList restList;
+    restList.readFile("restaurant.txt");
+    restList.printList();
 }
-
 
 
 

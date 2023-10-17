@@ -4,23 +4,25 @@
 
 #include "LinkedList.h"
 #include <iostream>
+#include <fstream>
+
 
 
 using namespace std;
 
-IntNode *LinkedList::getHead() const {
+RestNode *LinkedList::getHead() const {
     return head;
 }
 
-void LinkedList::setHead(IntNode *head) {
+void LinkedList::setHead(RestNode *head) {
     LinkedList::head = head;
 }
 
-IntNode *LinkedList::getTail() const {
+RestNode *LinkedList::getTail() const {
     return tail;
 }
 
-void LinkedList::setTail(IntNode *tail) {
+void LinkedList::setTail(RestNode *tail) {
     LinkedList::tail = tail;
 }
 
@@ -29,7 +31,7 @@ LinkedList::LinkedList() {
     tail = nullptr;
 }
 
-void LinkedList::push_front(IntNode *nodeLoc) {
+void LinkedList::push_front(RestNode *nodeLoc) {
     if (head == nullptr) {
         // list is empty
         head = nodeLoc;
@@ -41,7 +43,7 @@ void LinkedList::push_front(IntNode *nodeLoc) {
 
 }
 
-void LinkedList::push_back(IntNode *nodeLoc) {
+void LinkedList::push_back(RestNode *nodeLoc) {
     if (head == nullptr) {
         push_front(nodeLoc);
     }
@@ -53,7 +55,7 @@ void LinkedList::push_back(IntNode *nodeLoc) {
 }
 
 void LinkedList::printList() {
-    IntNode* tmp = head;
+    RestNode* tmp = head;
     while (tmp != nullptr) {
         tmp->PrintNodeData();
         tmp = tmp->GetNext();
@@ -61,8 +63,8 @@ void LinkedList::printList() {
 
 }
 
-void LinkedList::insert(int pos, IntNode *nodeLoc) {
-    IntNode* tmp = head;
+void LinkedList::insert(int pos, RestNode *nodeLoc) {
+    RestNode* tmp = head;
     if (pos == 0) { // insert in front head
         push_front(nodeLoc);
     }
@@ -87,12 +89,12 @@ void LinkedList::insert(int pos, IntNode *nodeLoc) {
 
 //LinkedList::~LinkedList() {  //destructor
 //    cout << "Call Destructor" << endl;
-//    IntNode *tmp = head;
+//    RestNode *tmp = head;
 //    while (tmp != nullptr) {
-//        IntNode* prev = tmp;
+//        RestNode* prev = tmp;
 //        tmp = tmp->GetNext();
 //        cout << "delete ";
-//        prev->PrintNodeData();
+//        prev->PrRestNodeData();
 //        delete prev;
 //    }
 //
@@ -111,10 +113,10 @@ LinkedList::LinkedList(const LinkedList &origList) {
     head = nullptr;
     tail = nullptr;
     cout << "copy constructor" << endl;
-    IntNode* temp = origList.head;
+    RestNode* temp = origList.head;
     while (temp != nullptr) {
-        int data = temp->getDataVal();
-        IntNode* node = new IntNode(data);
+        Restaurant data = temp->getDataVal();
+        RestNode* node = new RestNode(data);
         push_back(node);
         temp = temp->GetNext();
     }
@@ -127,15 +129,39 @@ LinkedList &LinkedList::operator=(const LinkedList &origList) {
     if (this != &origList) {
         head = nullptr;
         tail = nullptr;
-        IntNode* temp = origList.head;
+        RestNode* temp = origList.head;
         while (temp != nullptr) {
-            int data = temp->getDataVal();
-            IntNode* node = new IntNode(data);
+            Restaurant data = temp->getDataVal();
+            RestNode* node = new RestNode(data);
             push_back(node);
             temp = temp->GetNext();
         }
     }
 
     return *this;
+}
+
+void LinkedList::readFile(string filename) {
+    ifstream f;
+    f.open(filename);
+    if (!f.is_open()) {
+        cout << filename << " file not found." << endl;
+    }
+    string line;
+    while (getline(f, line)) {
+        string name;
+        getline(f, name);
+        string rating;
+        getline(f, rating);
+        double rate;
+        istringstream in(rating);
+        in >> rate;
+        string food;
+        getline(f, food);
+        Restaurant a(name, food, rate);
+        RestNode* node1 = new RestNode(a);
+        push_back(node1);
+    }
+
 }
 
