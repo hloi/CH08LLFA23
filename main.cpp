@@ -111,8 +111,14 @@ int main() {
 //    LinkedList list2;
 //    list2.pop_front();
 
+    restList.removeRestaurant("Elixirnoel8626");
+    restList.printList();
 
+    restList.removeRestaurant("Mogoodid24");
+    restList.printList();
 
+    restList.removeRestaurant("gobbledygook");
+    restList.printList();
 }
 
 

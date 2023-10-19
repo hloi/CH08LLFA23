@@ -235,3 +235,30 @@ void LinkedList::insertSortRating(RestNode *nodeLoc) {
 
 }
 
+void LinkedList::removeRestaurant(string s) {
+
+    RestNode* temp = head;
+    RestNode* prevTemp = nullptr;
+    if (head->getDataVal().getRestaurantName() == s) {
+        pop_front();
+    }
+    else if (tail->getDataVal().getRestaurantName() == s) {
+        pop_back();
+    }
+    else {
+        while (temp != nullptr and temp->getDataVal().getRestaurantName() != s) {
+            prevTemp = temp;
+            temp = temp->GetNext();
+        }
+        if (temp->getDataVal().getRestaurantName() == s) {
+            // remove node
+            prevTemp->SetNext(temp->GetNext());
+            delete temp;
+        }
+    }
+
+
+    //    throw runtime_error("Node not found.");
+
+}
+

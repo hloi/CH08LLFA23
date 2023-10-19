@@ -45,6 +45,7 @@ public:
 
     void insertSortRating(RestNode* nodeLoc);
 
+    void removeRestaurant(string s);
 
 private:
     RestNode* head;
