@@ -174,7 +174,8 @@ void LinkedList::readFile(string filename) {
         }
         Restaurant a(name, food, rate);
         RestNode* node1 = new RestNode(a);
-        push_back(node1);
+        // push_back(node1);
+        insertSortRating(node1);
     }
 
 }
@@ -207,6 +208,29 @@ void LinkedList::pop_back() {
         temp->SetNext(nullptr);
         delete tail;
         tail = temp;
+    }
+
+}
+
+void LinkedList::insertSortRating(RestNode *nodeLoc) {
+
+    if (head == nullptr) {
+        head = nodeLoc;
+        tail = nodeLoc;
+    }
+    // a.operator>(RestNode& node)
+    else if (*nodeLoc > *head) {
+        push_front(nodeLoc);
+    }
+    else if (*tail > *nodeLoc) {
+        push_back(nodeLoc);
+    } else {
+        RestNode* tempNode = head;
+
+        while (tempNode->GetNext() and (*tempNode->GetNext() > *nodeLoc)) {
+            tempNode = tempNode->GetNext();
+        }
+        tempNode->InsertAfter(nodeLoc);
     }
 
 }

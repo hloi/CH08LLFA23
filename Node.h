@@ -22,6 +22,8 @@ public:
     ~RestNode();
     Restaurant& getDataVal();
 
+    bool operator>(RestNode& other);
+
 private:
     Restaurant dataVal;
     RestNode* nextNodePtr;

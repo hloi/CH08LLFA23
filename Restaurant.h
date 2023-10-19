@@ -36,6 +36,9 @@ public:
     void setRating(double rating);
 
     friend ostream& operator<<(ostream& out, Restaurant& other);
+
+    bool operator>(Restaurant& other);
+
 };
 
 

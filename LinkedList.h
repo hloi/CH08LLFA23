@@ -43,6 +43,9 @@ public:
 
     void pop_back();  // remove back of the list
 
+    void insertSortRating(RestNode* nodeLoc);
+
+
 private:
     RestNode* head;
     RestNode* tail;

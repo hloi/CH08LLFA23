@@ -39,3 +39,7 @@ Restaurant::Restaurant(string name, string food, double review) {
     this->rating = review;
 
 }
+
+bool Restaurant::operator>(Restaurant& other) {
+    return this->rating > other.rating;
+}

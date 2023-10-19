@@ -48,3 +48,7 @@ Restaurant& RestNode::getDataVal()  {
     return dataVal;
 }
 
+bool RestNode::operator>(RestNode& other) {
+    return this->dataVal > other.dataVal;
+}
+
